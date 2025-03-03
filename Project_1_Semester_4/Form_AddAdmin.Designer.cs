@@ -63,12 +63,13 @@
             this.btAdmAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAdmAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAdmAdd.Location = new System.Drawing.Point(12, 401);
-            this.btAdmAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAdmAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btAdmAdd.Name = "btAdmAdd";
             this.btAdmAdd.Size = new System.Drawing.Size(132, 32);
             this.btAdmAdd.TabIndex = 174;
             this.btAdmAdd.Text = "Add Admin";
             this.btAdmAdd.UseVisualStyleBackColor = false;
+            this.btAdmAdd.Click += new System.EventHandler(this.btAdmAdd_Click);
             // 
             // btAdmLog
             // 
@@ -76,7 +77,7 @@
             this.btAdmLog.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAdmLog.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAdmLog.Location = new System.Drawing.Point(12, 440);
-            this.btAdmLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAdmLog.Margin = new System.Windows.Forms.Padding(2);
             this.btAdmLog.Name = "btAdmLog";
             this.btAdmLog.Size = new System.Drawing.Size(132, 32);
             this.btAdmLog.TabIndex = 173;
@@ -111,7 +112,7 @@
             this.btStoUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btStoUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btStoUpdate.Location = new System.Drawing.Point(12, 288);
-            this.btStoUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btStoUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btStoUpdate.Name = "btStoUpdate";
             this.btStoUpdate.Size = new System.Drawing.Size(132, 32);
             this.btStoUpdate.TabIndex = 171;
@@ -191,7 +192,7 @@
             this.btSupControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSupControl.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSupControl.Location = new System.Drawing.Point(14, 109);
-            this.btSupControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSupControl.Margin = new System.Windows.Forms.Padding(2);
             this.btSupControl.Name = "btSupControl";
             this.btSupControl.Size = new System.Drawing.Size(134, 32);
             this.btSupControl.TabIndex = 164;
@@ -218,7 +219,7 @@
             this.btStoControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btStoControl.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btStoControl.Location = new System.Drawing.Point(12, 238);
-            this.btStoControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btStoControl.Margin = new System.Windows.Forms.Padding(2);
             this.btStoControl.Name = "btStoControl";
             this.btStoControl.Size = new System.Drawing.Size(132, 32);
             this.btStoControl.TabIndex = 162;
@@ -232,7 +233,7 @@
             this.bt_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Logout.Location = new System.Drawing.Point(21, 581);
-            this.bt_Logout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_Logout.Margin = new System.Windows.Forms.Padding(2);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(51, 21);
             this.bt_Logout.TabIndex = 161;
@@ -262,7 +263,7 @@
             this.bt_Mainmenu.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.bt_Mainmenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.bt_Mainmenu.Location = new System.Drawing.Point(849, 570);
-            this.bt_Mainmenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_Mainmenu.Margin = new System.Windows.Forms.Padding(2);
             this.bt_Mainmenu.Name = "bt_Mainmenu";
             this.bt_Mainmenu.Size = new System.Drawing.Size(111, 32);
             this.bt_Mainmenu.TabIndex = 159;
@@ -274,7 +275,7 @@
             // 
             this.tx_AdmUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
             this.tx_AdmUsername.Location = new System.Drawing.Point(183, 124);
-            this.tx_AdmUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tx_AdmUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tx_AdmUsername.Name = "tx_AdmUsername";
             this.tx_AdmUsername.Size = new System.Drawing.Size(332, 18);
             this.tx_AdmUsername.TabIndex = 157;
@@ -308,7 +309,7 @@
             this.dgusers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.dgusers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgusers.Location = new System.Drawing.Point(537, 55);
-            this.dgusers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgusers.Margin = new System.Windows.Forms.Padding(2);
             this.dgusers.Name = "dgusers";
             this.dgusers.RowHeadersWidth = 51;
             this.dgusers.RowTemplate.Height = 24;
@@ -319,7 +320,7 @@
             // 
             this.tx_AdmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
             this.tx_AdmPassword.Location = new System.Drawing.Point(183, 214);
-            this.tx_AdmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tx_AdmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tx_AdmPassword.Name = "tx_AdmPassword";
             this.tx_AdmPassword.PasswordChar = '*';
             this.tx_AdmPassword.Size = new System.Drawing.Size(332, 18);
@@ -331,7 +332,7 @@
             this.bt_AdmDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.bt_AdmDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.bt_AdmDelete.Location = new System.Drawing.Point(214, 548);
-            this.bt_AdmDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_AdmDelete.Margin = new System.Windows.Forms.Padding(2);
             this.bt_AdmDelete.Name = "bt_AdmDelete";
             this.bt_AdmDelete.Size = new System.Drawing.Size(265, 33);
             this.bt_AdmDelete.TabIndex = 178;
@@ -359,7 +360,7 @@
             this.bt_AdmUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.bt_AdmUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.bt_AdmUpdate.Location = new System.Drawing.Point(214, 496);
-            this.bt_AdmUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_AdmUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.bt_AdmUpdate.Name = "bt_AdmUpdate";
             this.bt_AdmUpdate.Size = new System.Drawing.Size(265, 33);
             this.bt_AdmUpdate.TabIndex = 176;
@@ -372,7 +373,7 @@
             this.bt_AdmAddToDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.bt_AdmAddToDatabase.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.bt_AdmAddToDatabase.Location = new System.Drawing.Point(214, 458);
-            this.bt_AdmAddToDatabase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_AdmAddToDatabase.Margin = new System.Windows.Forms.Padding(2);
             this.bt_AdmAddToDatabase.Name = "bt_AdmAddToDatabase";
             this.bt_AdmAddToDatabase.Size = new System.Drawing.Size(265, 33);
             this.bt_AdmAddToDatabase.TabIndex = 179;
@@ -410,7 +411,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgusers);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_AddAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_AddAdmin";

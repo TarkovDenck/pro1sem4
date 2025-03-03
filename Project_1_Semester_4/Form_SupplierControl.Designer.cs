@@ -31,8 +31,8 @@
             this.bt_Mainmenu = new System.Windows.Forms.Button();
             this.btSupAdd = new System.Windows.Forms.Button();
             this.bt_SupCari = new System.Windows.Forms.Button();
+            this.tx_SupDes = new System.Windows.Forms.TextBox();
             this.tx_SupName = new System.Windows.Forms.TextBox();
-            this.tx_SupID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgSupplier = new System.Windows.Forms.DataGridView();
@@ -57,6 +57,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btAdmAdd = new System.Windows.Forms.Button();
             this.btAdmLog = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tx_SupId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgSupplier)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,23 +104,23 @@
             this.bt_SupCari.UseVisualStyleBackColor = false;
             this.bt_SupCari.Click += new System.EventHandler(this.bt_SupCari_Click);
             // 
+            // tx_SupDes
+            // 
+            this.tx_SupDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
+            this.tx_SupDes.Location = new System.Drawing.Point(172, 194);
+            this.tx_SupDes.Margin = new System.Windows.Forms.Padding(2);
+            this.tx_SupDes.Name = "tx_SupDes";
+            this.tx_SupDes.Size = new System.Drawing.Size(332, 18);
+            this.tx_SupDes.TabIndex = 24;
+            // 
             // tx_SupName
             // 
             this.tx_SupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
-            this.tx_SupName.Location = new System.Drawing.Point(172, 194);
+            this.tx_SupName.Location = new System.Drawing.Point(172, 124);
             this.tx_SupName.Margin = new System.Windows.Forms.Padding(2);
             this.tx_SupName.Name = "tx_SupName";
-            this.tx_SupName.Size = new System.Drawing.Size(332, 18);
-            this.tx_SupName.TabIndex = 24;
-            // 
-            // tx_SupID
-            // 
-            this.tx_SupID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
-            this.tx_SupID.Location = new System.Drawing.Point(172, 124);
-            this.tx_SupID.Margin = new System.Windows.Forms.Padding(2);
-            this.tx_SupID.Name = "tx_SupID";
-            this.tx_SupID.Size = new System.Drawing.Size(266, 18);
-            this.tx_SupID.TabIndex = 22;
+            this.tx_SupName.Size = new System.Drawing.Size(266, 18);
+            this.tx_SupName.TabIndex = 22;
             // 
             // label3
             // 
@@ -128,9 +130,9 @@
             this.label3.Location = new System.Drawing.Point(168, 92);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.Size = new System.Drawing.Size(118, 21);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Supplier ID";
+            this.label3.Text = "Supplier Name";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
@@ -156,6 +158,7 @@
             this.dgSupplier.RowTemplate.Height = 24;
             this.dgSupplier.Size = new System.Drawing.Size(423, 488);
             this.dgSupplier.TabIndex = 18;
+            this.dgSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSupplier_CellContentClick);
             // 
             // tx_SupAddress
             // 
@@ -172,8 +175,9 @@
             this.cb_Category.Location = new System.Drawing.Point(172, 329);
             this.cb_Category.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Category.Name = "cb_Category";
-            this.cb_Category.Size = new System.Drawing.Size(158, 21);
+            this.cb_Category.Size = new System.Drawing.Size(330, 21);
             this.cb_Category.TabIndex = 37;
+            this.cb_Category.Text = "Category";
             // 
             // bt_Logout
             // 
@@ -309,9 +313,9 @@
             this.label4.Location = new System.Drawing.Point(168, 162);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 21);
+            this.label4.Size = new System.Drawing.Size(159, 21);
             this.label4.TabIndex = 58;
-            this.label4.Text = "Supplier Name";
+            this.label4.Text = "Supplier Description";
             // 
             // label5
             // 
@@ -428,12 +432,37 @@
             this.btAdmLog.UseVisualStyleBackColor = false;
             this.btAdmLog.Click += new System.EventHandler(this.btAdmLog_Click_1);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(169, 425);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 21);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Supplier ID";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // tx_SupId
+            // 
+            this.tx_SupId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
+            this.tx_SupId.Location = new System.Drawing.Point(173, 457);
+            this.tx_SupId.Margin = new System.Windows.Forms.Padding(2);
+            this.tx_SupId.Name = "tx_SupId";
+            this.tx_SupId.Size = new System.Drawing.Size(332, 18);
+            this.tx_SupId.TabIndex = 66;
+            this.tx_SupId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form_SupplierControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Project_1_Semester_4.Properties.Resources.hetchbawah2;
             this.ClientSize = new System.Drawing.Size(962, 611);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tx_SupId);
             this.Controls.Add(this.btAdmAdd);
             this.Controls.Add(this.btAdmLog);
             this.Controls.Add(this.label1);
@@ -457,8 +486,8 @@
             this.Controls.Add(this.bt_Mainmenu);
             this.Controls.Add(this.btSupAdd);
             this.Controls.Add(this.bt_SupCari);
+            this.Controls.Add(this.tx_SupDes);
             this.Controls.Add(this.tx_SupName);
-            this.Controls.Add(this.tx_SupID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgSupplier);
@@ -480,8 +509,8 @@
         private System.Windows.Forms.Button bt_Mainmenu;
         private System.Windows.Forms.Button btSupAdd;
         private System.Windows.Forms.Button bt_SupCari;
+        private System.Windows.Forms.TextBox tx_SupDes;
         private System.Windows.Forms.TextBox tx_SupName;
-        private System.Windows.Forms.TextBox tx_SupID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgSupplier;
@@ -506,5 +535,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button btAdmAdd;
         private System.Windows.Forms.Button btAdmLog;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tx_SupId;
     }
 }

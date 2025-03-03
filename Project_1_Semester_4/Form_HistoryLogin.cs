@@ -28,6 +28,17 @@ namespace Project_1_Semester_4
         {
             InitializeComboBox();
             LoadDatauser();
+            if (!Session.IsLoggedIn())
+            {
+                MessageBox.Show("Anda harus login terlebih dahulu!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
+
+            if (Session.Role != "superadmin")
+            {
+                btAdmAdd.Enabled = false;
+                btAdmLog.Enabled = false;
+            }
         }
 
 
@@ -85,16 +96,28 @@ namespace Project_1_Semester_4
 
         private void bt_AdmAdd(object sender, EventArgs e)
         {
-            Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
-            form_AddAdminLink.Show();
-            this.Hide();
+            if (Session.Role == "superadmin")
+            {
+                Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
+                form_AddAdminLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk menambahkan admin!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bt_Logout_Click(object sender, EventArgs e)
         {
-            Form_Login form_LoginLink = new Form_Login();
-            form_LoginLink.Show();
-            this.Hide();
+            Session.Logout();
+
+            MessageBox.Show("Anda telah logout!", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Form_Login loginForm = new Form_Login();
+            loginForm.Show();
+
+            this.Close();
         }
 
         private void bt_Mainmenu_Click(object sender, EventArgs e)
@@ -106,57 +129,70 @@ namespace Project_1_Semester_4
 
         private void bt_AdmSearch_Click(object sender, EventArgs e)
         {
-            //// Validasi input minimal satu filter harus terisi
-            //if (string.IsNullOrWhiteSpace(tx_AdmUsername.Text) && cb_AdmStatus.SelectedIndex == -1 && !dt_AdmLog.Checked)
-            //{
-            //    MessageBox.Show("Silakan masukkan setidaknya satu parameter pencarian!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            
+            if (string.IsNullOrWhiteSpace(tx_AdmUsername.Text) && cb_AdmStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Silakan masukkan setidaknya satu parameter pencarian!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //string username = tx_AdmUsername.Text.Trim();
-            //string status = cb_AdmStatus.SelectedIndex != -1 ? cb_AdmStatus.SelectedItem.ToString() : "";
-            //string login_time = dt_AdmLog.Checked ? dt_AdmLog.Value.ToString("yyyy-MM-dd") : "";
+            string username = tx_AdmUsername.Text.Trim();
+            string status = cb_AdmStatus.SelectedIndex != -1 ? cb_AdmStatus.SelectedItem.ToString() : "";
 
-            //ClassHLogin classHLogin = new ClassHLogin();
+            ClassHLogin classHLogin = new ClassHLogin();
 
-            //// Ambil hasil pencarian dari database
-            //List<Dictionary<string, string>> hasil = classHLogin.CariLoginLogs(username, login_time, status);
+            
+            List<Dictionary<string, string>> hasil = classHLogin.CariLoginLogs(username, status);
 
-            //// Debugging: Cek apakah ada data yang ditemukan
-            //Console.WriteLine("Total Data Ditemukan: " + hasil.Count);
-            //foreach (var log in hasil)
-            //{
-            //    Console.WriteLine($"Username: {log["username"]}, Status: {log["status"]}, Timestamp: {log["timestamp"]}");
-            //}
+            // Debugging: Cek apakah ada data yang ditemukan
+            Console.WriteLine("Total Data Ditemukan: " + hasil.Count);
+            foreach (var log in hasil)
+            {
+                Console.WriteLine($"Username: {log["username"]}, Status: {log["status"]}, Timestamp: {log["timestamp"]}");
+            }
 
-            //if (hasil == null || hasil.Count == 0)
-            //{
-            //    MessageBox.Show("Tidak ada log ditemukan untuk pencarian ini!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    dglogs.DataSource = null; // Hapus data sebelumnya
-            //    return;
-            //}
+            if (hasil == null || hasil.Count == 0)
+            {
+                MessageBox.Show("Tidak ada log ditemukan untuk pencarian ini!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dglogs.DataSource = null; // Hapus data sebelumnya
+                return;
+            }
 
-            //// Buat DataTable untuk menyimpan hasil
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add("Username", typeof(string));
-            //dt.Columns.Add("Status", typeof(string));
-            //dt.Columns.Add("Timestamp", typeof(string));
+            // Buat DataTable untuk menyimpan hasil
+            DataTable dt = new DataTable();
+            dt.Columns.Add("username", typeof(string));
+            dt.Columns.Add("status", typeof(string));
+            dt.Columns.Add("Timestamp", typeof(string));
 
-            //// Tambahkan hasil ke DataTable
-            //foreach (var log in hasil)
-            //{
-            //    dt.Rows.Add(log["username"], log["status"], log["timestamp"]);
-            //}
+            // Tambahkan hasil ke DataTable
+            foreach (var log in hasil)
+            {
+                dt.Rows.Add(log["username"], log["status"], log["timestamp"]);
+            }
 
-            //// Binding DataTable ke DataGridView
-            //dglogs.DataSource = dt;
-            //dglogs.Refresh();
-        
+            // Binding DataTable ke DataGridView
+            dglogs.DataSource = dt;
+            dglogs.Refresh();
+
         }
 
         private void cb_AdmStatus_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btAdmLog_Click(object sender, EventArgs e)
+        {
+            if (Session.Role == "superadmin")
+            {
+                Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
+                form_HistoryLoginLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk melihat riwayat login!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

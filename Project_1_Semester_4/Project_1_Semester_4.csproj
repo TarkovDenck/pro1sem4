@@ -104,6 +104,7 @@
     <Compile Include="ClassAddAdmin.cs" />
     <Compile Include="ClassLogin.cs" />
     <Compile Include="ClassHLogin.cs" />
+    <Compile Include="ClassSupplierCon.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="FormTest.cs">
       <SubType>Form</SubType>

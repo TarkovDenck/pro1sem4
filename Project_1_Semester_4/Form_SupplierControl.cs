@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using MySql.Data.MySqlClient;
 
 namespace Project_1_Semester_4
 {
@@ -24,8 +26,8 @@ namespace Project_1_Semester_4
 
         private void Form_SupplierControl_Load(object sender, EventArgs e)
         {
-            
-
+            LoadDatasuppllier();
+            Formcb_Load();
             if (!Session.IsLoggedIn())
             {
                 MessageBox.Show("Anda harus login terlebih dahulu!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -39,7 +41,15 @@ namespace Project_1_Semester_4
             }
         }
 
-       
+        void LoadDatasuppllier()
+        {
+            ClassSupplierCon emp = new ClassSupplierCon();
+            DataTable dt = emp.Read();
+            dgSupplier.DataSource = dt;
+
+        }
+
+
 
         private void btSupControl_Click(object sender, EventArgs e)
         {
@@ -69,17 +79,117 @@ namespace Project_1_Semester_4
 
         private void btSupAdd_Click(object sender, EventArgs e)
         {
+            string name = tx_SupName.Text.Trim();
+            string description = tx_SupDes.Text.Trim();
+            string address = tx_SupAddress.Text.Trim();
+            string category = cb_Category.SelectedItem?.ToString();
 
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(category))
+            {
+                MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ClassSupplierCon supplierCon = new ClassSupplierCon();
+            string result = supplierCon.InsertSupplier(name, description, address, category);
+
+            if (result == "success")
+            {
+                MessageBox.Show("Supplier berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearForm();
+                LoadDatasuppllier(); // Refresh DataGridView
+            }
+            else
+            {
+                MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearForm()
+        {
+            tx_SupName.Text = "";
+            tx_SupDes.Text = "";
+            tx_SupAddress.Text = "";
+            cb_Category.SelectedIndex = -1; 
+        }
+
+        private void Formcb_Load()
+        {
+            cb_Category.Items.Clear(); // Kosongkan ComboBox sebelum mengisi ulang
+
+            ClassSupplierCon supplierCon = new ClassSupplierCon();
+            List<string> categories = supplierCon.GetCategories();
+
+            if (categories.Count > 0)
+            {
+                cb_Category.Items.AddRange(categories.ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Tidak ada kategori yang ditemukan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bt_SupDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tx_SupId.Text.Trim()))
+            {
+                MessageBox.Show("Harap masukkan ID supplier yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (!int.TryParse(tx_SupId.Text.Trim(), out int supplierId))
+            {
+                MessageBox.Show("ID supplier harus berupa angka!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show($"Apakah Anda yakin ingin menghapus supplier dengan ID {supplierId}?",
+                                                        "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No) return;
+
+            ClassSupplierCon supplierCon = new ClassSupplierCon();
+            string result = supplierCon.DeleteSupplier(supplierId);
+
+            if (result == "success")
+            {
+                MessageBox.Show("Supplier berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearForm();
+                LoadDatasuppllier(); // Refresh DataGridView
+            }
+            else
+            {
+                MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bt_SupCari_Click(object sender, EventArgs e)
         {
+            string name = tx_SupName.Text.Trim();
 
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Harap masukkan nama supplier yang ingin dicari!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ClassSupplierCon supplierCon = new ClassSupplierCon();
+            DataTable dt = supplierCon.SearchSupplier(name);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dgSupplier.DataSource = dt;
+
+                // Pastikan header kolom sesuai alias
+                dgSupplier.Columns["supplier_name"].HeaderText = "Nama Supplier";
+                dgSupplier.Columns["description"].HeaderText = "Deskripsi";
+                dgSupplier.Columns["address"].HeaderText = "Alamat";
+                dgSupplier.Columns["category"].HeaderText = "Kategori";
+            }
+            else
+            {
+                MessageBox.Show("Supplier tidak ditemukan.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bt_Logout_Click(object sender, EventArgs e)
@@ -148,6 +258,21 @@ namespace Project_1_Semester_4
             {
                 MessageBox.Show("Anda tidak memiliki izin untuk melihat riwayat login!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void dgSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,8 +9,8 @@ namespace Project_1_Semester_4
 {
     internal class Session
     {
-        public static string Username { get; set; } = null; 
-        public static string Role { get; set; } = null; 
+        public static string Username { get; set; } = null;
+        public static string Role { get; set; } = null;
 
         public static bool IsLoggedIn()
         {
@@ -42,7 +42,8 @@ namespace Project_1_Semester_4
             Username = null;
             Role = null;
         }
+    
 
-        
+
     }
 }
