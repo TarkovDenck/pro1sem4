@@ -164,3 +164,5 @@ C:\Users\Javier Farel Baroto\Documents\CCIT\SEMESTER_4\pro1sem4\pro1sem4\Project
 C:\Users\Javier Farel Baroto\Documents\CCIT\SEMESTER_4\pro1sem4\pro1sem4\Project_1_Semester_4\obj\Debug\Project_1_Semester_4.exe
 C:\Users\Javier Farel Baroto\Documents\CCIT\SEMESTER_4\pro1sem4\pro1sem4\Project_1_Semester_4\obj\Debug\Project_1_Semester_4.pdb
 C:\Users\Javier Farel Baroto\Documents\CCIT\SEMESTER_4\pro1sem4\pro1sem4\Project_1_Semester_4\obj\Debug\Project_1_Semester_4.Form_AddAdmin.resources
+C:\Code\Project_1_Semester_4\Project_1_Semester_4\obj\Debug\Project_1_Semester_4.Form_AddAdmin.resources
+C:\Code\Project_1_Semester_4\Project_1_Semester_4\obj\Debug\Project_1_Semester_4.Form_HistoryLogin.resources

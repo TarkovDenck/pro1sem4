@@ -30,7 +30,6 @@
         {
             this.btStoUpdate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -46,14 +45,13 @@
             this.tx_AdmUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgStocks = new System.Windows.Forms.DataGridView();
+            this.dglogs = new System.Windows.Forms.DataGridView();
             this.btAdmAdd = new System.Windows.Forms.Button();
             this.btAdmLog = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.dt_AdmLog = new System.Windows.Forms.DateTimePicker();
             this.cb_AdmStatus = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgStocks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dglogs)).BeginInit();
             this.SuspendLayout();
             // 
             // btStoUpdate
@@ -61,7 +59,8 @@
             this.btStoUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.btStoUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btStoUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btStoUpdate.Location = new System.Drawing.Point(18, 355);
+            this.btStoUpdate.Location = new System.Drawing.Point(19, 354);
+            this.btStoUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStoUpdate.Name = "btStoUpdate";
             this.btStoUpdate.Size = new System.Drawing.Size(176, 39);
             this.btStoUpdate.TabIndex = 144;
@@ -76,20 +75,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(1155, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 28);
+            this.label7.Size = new System.Drawing.Size(107, 28);
             this.label7.TabIndex = 143;
-            this.label7.Text = "Stocks Data:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(245, 323);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 28);
-            this.label5.TabIndex = 141;
-            this.label5.Text = "Login Time";
+            this.label7.Text = "Logs Data:";
             // 
             // label4
             // 
@@ -108,7 +96,7 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(17, 40);
+            this.label13.Location = new System.Drawing.Point(17, 39);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(167, 16);
             this.label13.TabIndex = 139;
@@ -121,7 +109,7 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(48)))));
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.Control;
-            this.label14.Location = new System.Drawing.Point(15, 56);
+            this.label14.Location = new System.Drawing.Point(15, 57);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(179, 16);
             this.label14.TabIndex = 138;
@@ -134,7 +122,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(18, 114);
+            this.label12.Location = new System.Drawing.Point(19, 114);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(162, 16);
             this.label12.TabIndex = 137;
@@ -147,6 +135,7 @@
             this.btSupControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSupControl.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSupControl.Location = new System.Drawing.Point(20, 134);
+            this.btSupControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSupControl.Name = "btSupControl";
             this.btSupControl.Size = new System.Drawing.Size(179, 39);
             this.btSupControl.TabIndex = 136;
@@ -159,7 +148,7 @@
             this.dASHBOARDToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dASHBOARDToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.dASHBOARDToolStripMenuItem.Name = "dASHBOARDToolStripMenuItem";
-            this.dASHBOARDToolStripMenuItem.Size = new System.Drawing.Size(193, 42);
+            this.dASHBOARDToolStripMenuItem.Size = new System.Drawing.Size(194, 42);
             this.dASHBOARDToolStripMenuItem.Text = "DASHBOARD";
             // 
             // label11
@@ -168,7 +157,7 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(18, 269);
+            this.label11.Location = new System.Drawing.Point(19, 270);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 16);
             this.label11.TabIndex = 135;
@@ -179,7 +168,8 @@
             this.btStoControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.btStoControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btStoControl.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btStoControl.Location = new System.Drawing.Point(18, 293);
+            this.btStoControl.Location = new System.Drawing.Point(19, 293);
+            this.btStoControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStoControl.Name = "btStoControl";
             this.btStoControl.Size = new System.Drawing.Size(176, 39);
             this.btStoControl.TabIndex = 134;
@@ -193,6 +183,7 @@
             this.bt_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bt_Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Logout.Location = new System.Drawing.Point(25, 715);
+            this.bt_Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(68, 26);
             this.bt_Logout.TabIndex = 133;
@@ -210,8 +201,9 @@
             this.dASHBOARDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(206, 752);
+            this.menuStrip1.Size = new System.Drawing.Size(205, 752);
             this.menuStrip1.TabIndex = 132;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -220,7 +212,8 @@
             this.bt_Mainmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.bt_Mainmenu.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.bt_Mainmenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
-            this.bt_Mainmenu.Location = new System.Drawing.Point(1129, 701);
+            this.bt_Mainmenu.Location = new System.Drawing.Point(1129, 702);
+            this.bt_Mainmenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_Mainmenu.Name = "bt_Mainmenu";
             this.bt_Mainmenu.Size = new System.Drawing.Size(148, 39);
             this.bt_Mainmenu.TabIndex = 129;
@@ -232,19 +225,22 @@
             // 
             this.bt_AdmSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.bt_AdmSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.bt_AdmSearch.Location = new System.Drawing.Point(277, 616);
+            this.bt_AdmSearch.Location = new System.Drawing.Point(277, 615);
+            this.bt_AdmSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_AdmSearch.Name = "bt_AdmSearch";
             this.bt_AdmSearch.Size = new System.Drawing.Size(353, 41);
             this.bt_AdmSearch.TabIndex = 128;
             this.bt_AdmSearch.Text = "Search";
             this.bt_AdmSearch.UseVisualStyleBackColor = false;
+            this.bt_AdmSearch.Click += new System.EventHandler(this.bt_AdmSearch_Click);
             // 
             // tx_AdmUsername
             // 
-            this.tx_AdmUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.12F);
-            this.tx_AdmUsername.Location = new System.Drawing.Point(241, 152);
+            this.tx_AdmUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tx_AdmUsername.Location = new System.Drawing.Point(241, 153);
+            this.tx_AdmUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tx_AdmUsername.Name = "tx_AdmUsername";
-            this.tx_AdmUsername.Size = new System.Drawing.Size(441, 21);
+            this.tx_AdmUsername.Size = new System.Drawing.Size(441, 24);
             this.tx_AdmUsername.TabIndex = 125;
             this.tx_AdmUsername.TextChanged += new System.EventHandler(this.tx_AdmUsername_TextChanged);
             // 
@@ -270,23 +266,25 @@
             this.label2.TabIndex = 123;
             this.label2.Text = "LOGIN HISTORY";
             // 
-            // dgStocks
+            // dglogs
             // 
-            this.dgStocks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dgStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgStocks.Location = new System.Drawing.Point(713, 68);
-            this.dgStocks.Name = "dgStocks";
-            this.dgStocks.RowHeadersWidth = 51;
-            this.dgStocks.RowTemplate.Height = 24;
-            this.dgStocks.Size = new System.Drawing.Size(564, 600);
-            this.dgStocks.TabIndex = 122;
+            this.dglogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dglogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dglogs.Location = new System.Drawing.Point(713, 68);
+            this.dglogs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dglogs.Name = "dglogs";
+            this.dglogs.RowHeadersWidth = 51;
+            this.dglogs.RowTemplate.Height = 24;
+            this.dglogs.Size = new System.Drawing.Size(564, 601);
+            this.dglogs.TabIndex = 122;
             // 
             // btAdmAdd
             // 
             this.btAdmAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.btAdmAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAdmAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdmAdd.Location = new System.Drawing.Point(18, 493);
+            this.btAdmAdd.Location = new System.Drawing.Point(19, 494);
+            this.btAdmAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btAdmAdd.Name = "btAdmAdd";
             this.btAdmAdd.Size = new System.Drawing.Size(176, 39);
             this.btAdmAdd.TabIndex = 151;
@@ -299,7 +297,8 @@
             this.btAdmLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(253)))), ((int)(((byte)(0)))));
             this.btAdmLog.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAdmLog.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdmLog.Location = new System.Drawing.Point(18, 542);
+            this.btAdmLog.Location = new System.Drawing.Point(19, 542);
+            this.btAdmLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btAdmLog.Name = "btAdmLog";
             this.btAdmLog.Size = new System.Drawing.Size(176, 39);
             this.btAdmLog.TabIndex = 150;
@@ -312,28 +311,23 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(18, 465);
+            this.label8.Location = new System.Drawing.Point(19, 465);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 16);
             this.label8.TabIndex = 149;
             this.label8.Text = "Admin Management:";
             // 
-            // dt_AdmLog
-            // 
-            this.dt_AdmLog.Location = new System.Drawing.Point(241, 355);
-            this.dt_AdmLog.Name = "dt_AdmLog";
-            this.dt_AdmLog.Size = new System.Drawing.Size(441, 22);
-            this.dt_AdmLog.TabIndex = 152;
-            this.dt_AdmLog.ValueChanged += new System.EventHandler(this.dt_AdmLog_ValueChanged);
-            // 
             // cb_AdmStatus
             // 
+            this.cb_AdmStatus.DisplayMember = "Admin";
+            this.cb_AdmStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_AdmStatus.FormattingEnabled = true;
-            this.cb_AdmStatus.Location = new System.Drawing.Point(241, 261);
+            this.cb_AdmStatus.Location = new System.Drawing.Point(241, 257);
+            this.cb_AdmStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_AdmStatus.Name = "cb_AdmStatus";
-            this.cb_AdmStatus.Size = new System.Drawing.Size(441, 24);
-            this.cb_AdmStatus.TabIndex = 153;
-            this.cb_AdmStatus.SelectedIndexChanged += new System.EventHandler(this.cb_AdmStatus_SelectedIndexChanged);
+            this.cb_AdmStatus.Size = new System.Drawing.Size(441, 26);
+            this.cb_AdmStatus.TabIndex = 154;
+            this.cb_AdmStatus.Text = "Status";
             // 
             // Form_HistoryLogin
             // 
@@ -342,13 +336,11 @@
             this.BackgroundImage = global::Project_1_Semester_4.Properties.Resources.hetchbawah2;
             this.ClientSize = new System.Drawing.Size(1283, 752);
             this.Controls.Add(this.cb_AdmStatus);
-            this.Controls.Add(this.dt_AdmLog);
             this.Controls.Add(this.btAdmAdd);
             this.Controls.Add(this.btAdmLog);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btStoUpdate);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -363,14 +355,15 @@
             this.Controls.Add(this.tx_AdmUsername);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgStocks);
+            this.Controls.Add(this.dglogs);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_HistoryLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_HistoryLogin";
             this.Load += new System.EventHandler(this.Form_HistoryLogin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgStocks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dglogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,7 +372,6 @@
         #endregion
         private System.Windows.Forms.Button btStoUpdate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -395,11 +387,10 @@
         private System.Windows.Forms.TextBox tx_AdmUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgStocks;
+        private System.Windows.Forms.DataGridView dglogs;
         private System.Windows.Forms.Button btAdmAdd;
         private System.Windows.Forms.Button btAdmLog;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dt_AdmLog;
         private System.Windows.Forms.ComboBox cb_AdmStatus;
     }
 }

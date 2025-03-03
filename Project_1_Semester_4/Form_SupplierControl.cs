@@ -24,15 +24,22 @@ namespace Project_1_Semester_4
 
         private void Form_SupplierControl_Load(object sender, EventArgs e)
         {
-            Combo_Box_Item_add();
+            
+
+            if (!Session.IsLoggedIn())
+            {
+                MessageBox.Show("Anda harus login terlebih dahulu!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
+
+            if (Session.Role != "superadmin")
+            {
+                btAdmAdd.Enabled = false;
+                btAdmLog.Enabled = false;
+            }
         }
 
-        private void Combo_Box_Item_add()
-        {
-            cb_Category.Items.Add("Placeholder1");
-            cb_Category.Items.Add("Placeholder2");
-            cb_Category.Items.Add("Placeholder3");
-        }
+       
 
         private void btSupControl_Click(object sender, EventArgs e)
         {
@@ -77,23 +84,70 @@ namespace Project_1_Semester_4
 
         private void bt_Logout_Click(object sender, EventArgs e)
         {
-            Form_Login Form_LoginLink = new Form_Login();
-            Form_LoginLink.Show();
-            this.Hide();
+            Session.Logout();
+
+            MessageBox.Show("Anda telah logout!", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Form_Login loginForm = new Form_Login();
+            loginForm.Show();
+
+            this.Close();
         }
 
         private void btAdmAdd_Click(object sender, EventArgs e)
         {
-            Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
-            form_AddAdminLink.Show();
-            this.Hide();
+            if (Session.Role == "superadmin")
+            {
+                Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
+                form_AddAdminLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk menambahkan admin!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btAdmLog_Click(object sender, EventArgs e)
         {
-            Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
-            form_HistoryLoginLink.Show();
-            this.Hide();
+            if (Session.Role == "superadmin")
+            {
+                Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
+                form_HistoryLoginLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk melihat riwayat login!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btAdmAdd_Click_1(object sender, EventArgs e)
+        {
+            if (Session.Role == "superadmin")
+            {
+                Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
+                form_AddAdminLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk menambahkan admin!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btAdmLog_Click_1(object sender, EventArgs e)
+        {
+            if (Session.Role == "superadmin")
+            {
+                Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
+                form_HistoryLoginLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk melihat riwayat login!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

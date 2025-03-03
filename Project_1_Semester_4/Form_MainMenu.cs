@@ -27,6 +27,12 @@ namespace Project_1_Semester_4
                 MessageBox.Show("Anda harus login terlebih dahulu!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
+
+            if (Session.Role != "superadmin")
+            {
+                btAdmAdd.Enabled = false;
+                btAdmLog.Enabled = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,16 +77,30 @@ namespace Project_1_Semester_4
 
         private void btAdmAdd_Click(object sender, EventArgs e)
         {
-            Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
-            form_AddAdminLink.Show();
-            this.Hide();
+            if (Session.Role == "superadmin")
+            {
+                Form_AddAdmin form_AddAdminLink = new Form_AddAdmin();
+                form_AddAdminLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk menambahkan admin!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btAdmLog_Click(object sender, EventArgs e)
         {
-            Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
-            form_HistoryLoginLink.Show();
-            this.Hide();
+            if (Session.Role == "superadmin")
+            {
+                Form_HistoryLogin form_HistoryLoginLink = new Form_HistoryLogin();
+                form_HistoryLoginLink.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Anda tidak memiliki izin untuk melihat riwayat login!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
