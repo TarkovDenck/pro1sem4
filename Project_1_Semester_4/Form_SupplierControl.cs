@@ -90,8 +90,11 @@ namespace Project_1_Semester_4
                 return;
             }
 
+            // Ambil username asli dari session
+            string username = Session.Username;
+
             ClassSupplierCon supplierCon = new ClassSupplierCon();
-            string result = supplierCon.InsertSupplier(name, description, address, category);
+            string result = supplierCon.InsertSupplier(name, description, address, category, username);
 
             if (result == "success")
             {
@@ -132,30 +135,39 @@ namespace Project_1_Semester_4
 
         private void bt_SupDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tx_SupId.Text.Trim()))
+            if (dgSupplier.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Harap masukkan ID supplier yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pilih supplier yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!int.TryParse(tx_SupId.Text.Trim(), out int supplierId))
+            // Ambil ID Supplier dari DataGridView
+            int supplierId = Convert.ToInt32(dgSupplier.SelectedRows[0].Cells["id"].Value);
+
+            // Konfirmasi penghapusan
+            DialogResult dialogResult = MessageBox.Show(
+                "Apakah Anda yakin ingin menghapus supplier ini?",
+                "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (dialogResult == DialogResult.No)
             {
-                MessageBox.Show("ID supplier harus berupa angka!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show($"Apakah Anda yakin ingin menghapus supplier dengan ID {supplierId}?",
-                                                        "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.No) return;
+            // Ambil username asli dari session
+            string username = Session.Username;
 
+            // Panggil fungsi delete dari ClassSupplierCon
             ClassSupplierCon supplierCon = new ClassSupplierCon();
-            string result = supplierCon.DeleteSupplier(supplierId);
+            string result = supplierCon.DeleteSupplier(supplierId, username);
 
             if (result == "success")
             {
                 MessageBox.Show("Supplier berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearForm();
-                LoadDatasuppllier(); // Refresh DataGridView
+                LoadDatasuppllier(); // Refresh DataGridView setelah penghapusan
             }
             else
             {
